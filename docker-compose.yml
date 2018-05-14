@@ -1,0 +1,15 @@
+version: '3'
+services:
+    carousel-web:
+        build: ./docker/nginx
+        container_name: carousel-web
+        ports:
+          - 50000:80
+        volumes:
+          - ${CAROUSEL_SRC_DIR}:/var/www/html
+        networks:
+          - carousel-network
+
+networks:
+  carousel-network:
+      driver: bridge
